@@ -1,6 +1,6 @@
 # IS373 Group Record: Common Exam Note Coverage Checker
 
-**Team:** Alex Wiemer ([ACW900](https://github.com/ACW900)) · Dylan H · **Course:** IS373, NJIT, Fall 2026
+**Team:** Alex Wiemer ([ACW900](https://github.com/ACW900)) · Dylan Hrusko ([DylanJHrusko](https://github.com/DylanJHrusko)) · **Course:** IS373, NJIT, Fall 2026
 
 **Stage:** Review 1 (Plan), Nov 17, 2026. Nothing is built yet, so every check below is labeled `planned`.
 **Status labels:** `planned` · `observed locally` · `observed in CI` · `observed hosted`. A plan or an expected answer is not an executed test.
@@ -16,7 +16,7 @@
 
 | Item | Where | Status |
 |---|---|---|
-| Project ideas (one each) + choice | [A](#a-project-ideas-one-each) | chosen |
+| Project ideas (one each) + choice | [A](#a-project-ideas-one-each) | two ideas shared, decision open |
 | Reader, problem and question | [B](#b-reader-problem-and-question) | decided |
 | Source manifest | [C](#c-source-manifest) | written (synthetic fixtures, labeled) |
 | Workflow | [D](#d-workflow) | decided |
@@ -35,9 +35,13 @@
 | | Idea | From |
 |---|---|---|
 | **Idea 1** | **Common exam note coverage checker:** compare notes from different sections against a common exam's topic list, and show which topics are covered, by which notes, and which are missing. | Alex |
-| **Idea 2** | `[Dylan: your idea in one or two sentences]` | Dylan |
+| **Idea 2** | **Canonical book research assistant:** a reader adds books they own to their library, and the system answers research questions using only passages from those books. Every answer cites the book, chapter and passage, and it says "not found in your library" instead of guessing, so research is faster without hallucinated facts or quotes. | Dylan |
 
-**Chosen: Idea 1.** It builds on the note-sharing problem we already researched in IS247, so it helps both classes, and it fits the IS373 "information isolation" problem (source coverage, traceable comparisons, honest gaps).
+**Decision: open.** We are sharing both ideas and have not picked one yet. Sections B–K below currently detail Idea 1.
+
+- **Case for Idea 1 (Alex):** It builds on the note-sharing problem we already researched in IS247, so it helps both classes, and it fits the IS373 "information isolation" problem (source coverage, traceable comparisons, honest gaps).
+- **Case for Idea 2 (Dylan):** What a reader needs is spread across many books, and checking what each book actually says about a topic is slow. A general chatbot will answer from memory and can invent quotes or facts. Idea 2 only retrieves from books the reader added and owns, shows the exact passages it used, and reports when the library doesn't cover a question. It fits the IS373 content ETL problem (import books → split into cited passages → retrieve → reviewable answer with sources).
+- **Idea 2 sources and limits:** the system only pulls from books the reader adds themselves or owns; it never fetches or shares outside books. Because most books are copyrighted, a public hosted demo would use public-domain texts (for example from Project Gutenberg), and a reader's own copyrighted books stay private to their library.
 
 ---
 
@@ -171,6 +175,6 @@ Every part has an owner and a **different** reviewer, and we'll link issues and 
 **Checked (actually done):** we reviewed this plan together on Nov 17, 2026. Nothing has been run yet.
 **Next:** write the fixtures, confirm the owner/reviewer split as GitHub issues, and build the first import → match → gap report path for **Build, Nov 24**.
 
-**Help received:** Claude (an AI assistant) helped Alex prepare the meeting agenda and drafted this record from our decisions, including the synthetic fixture design and the evaluation cases.
+**Help received:** Claude (an AI assistant) helped Alex prepare the meeting agenda and drafted this record from our decisions, including the synthetic fixture design and the evaluation cases. Claude also helped Dylan word Idea 2 and its case and limits in Section A from Dylan's own idea; Dylan reviewed the text.
 
 </details>
